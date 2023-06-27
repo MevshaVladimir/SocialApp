@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Мій Проект</string>
+    <string name="Profile_Settings">Налаштування</string>
+    <string name="Profile_Username"></string>
+    <string name="Profile_Career">Кар\'єра</string>
+    <string name="Profile_address">Домашня адреса</string>
+    <string name="Profile_Edit_Profile">Редагувати профіль</string>
+    <string name="Profile_view_my_contacts">МОЇ КОНТАКТИ</string>
+
+    <string name="SignUp_Top">Давайте познайомимось</string>
+    <string name="SignUp_Top2">Заповніть профіль і перейдіть до додатку!</string>
+    <string name="SignUp_email">Електронна пошта</string>
+    <string name="SignUp_Password">Пароль</string>
+    <string name="SignUp_login">Вже маєте обліковий запис?</string>
+    <string name="SignUp_signIn">Увійти</string>
+    <string name="SignUp_bot">Натискаючи «Зареєструватися», ви погоджуєтеся з нашими Правилами\nта Умовами</string>
+    <string name="SignUp_Register">ЗАРЕЄСТРУВАТИСЯ</string>
+    <string name="SignUp_or">або</string>
+    <string name="SignUp_Google">GOOGLE</string>
+    <string name="SignUp_RememberMe">Запам\'ятати мене</string>
+    <string name="SignUp_EmailError">Неправильний електронний адреса</string>
+    <string name="SignUp_PasswordError">Пароль повинен містити щонайменше 6 символів, включати хоча б одну цифру, одну велику та одну малу літеру</string>
+    <string name="SignUp_ValidationCompleted">Перевірка завершена</string>
+</resources>
