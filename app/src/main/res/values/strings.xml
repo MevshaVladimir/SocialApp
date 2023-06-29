@@ -1,19 +1,22 @@
 <resources>
     <string name="app_name">MyProject</string>
+
+    <!-- Profile screen -->
     <string name="Profile_Settings">Settings</string>
-    <string name="Profile_Username"></string>
+    <string name="Profile_Username" translatable="false">User name</string>
     <string name="Profile_Career">Career</string>
     <string name="Profile_address">Home address</string>
     <string name="Profile_Edit_Profile">Edit profile</string>
     <string name="Profile_view_my_contacts">VIEW MY CONTACTS</string>
 
+    <!-- SignUp screen -->
     <string name="SignUp_Top">Let\'s get acquainted</string>
     <string name="SignUp_Top2">Fill out the profile and go to the application!</string>
     <string name="SignUp_email">E-mail</string>
     <string name="SignUp_Password">Password</string>
     <string name="SignUp_login">Already have an account?</string>
     <string name="SignUp_signIn">Sign in</string>
-    <string name="SignUp_bot">By clicking Register you agree to our Terms\nand Conditions</string>
+    <string name="SignUp_bot">By clicking Register you agree to our Terms\nand Conditions</string>  <!-- \n -->
     <string name="SignUp_Register">REGISTER</string>
     <string name="SignUp_or">or</string>
     <string name="SignUp_Google">GOOGLE</string>
@@ -21,4 +24,5 @@
     <string name="SignUp_EmailError">Email is incorrect</string>
     <string name="SignUp_PasswordError">Password must be at least 6 characters long, contain at least one number, and at least one uppercase and lowercase letter</string>
     <string name="SignUp_ValidationCompleted">Validation Completed</string>
+
 </resources>

@@ -20,20 +20,16 @@
 
     <TextView
         android:id="@+id/profile_settings"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
         android:fontFamily="@font/open_sans"
         android:text="@string/Profile_Settings"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/topBG"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="114dp"
@@ -54,14 +50,13 @@
         android:layout_marginTop="240dp"
         android:layout_marginBottom="120dp"
         android:fontFamily="@font/open_sans"
-        android:text="@string/Profile_Username"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/topBG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/topBG"
-        tools:text="Name Surname" />
+        tools:text="@string/Profile_Username"/>
 
     <TextView
         android:id="@+id/profile_Top2"
@@ -73,6 +68,7 @@
         android:text="@string/Profile_Career"
         android:textColor="@color/gray"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/topBG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,40 +89,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="80dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/profile_edit_profile_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBG">
 
         <ImageView
             android:id="@+id/profile_facebook_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:src="@drawable/facebook_logo" />
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:src="@drawable/facebook_logo"
+            app:layout_constraintTop_toBottomOf="@id/topBG"
+            app:layout_constraintBottom_toTopOf="@id/profile_edit_profile_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/profile_linkedin_logo"/>
 
         <ImageView
             android:id="@+id/profile_linkedin_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:src="@drawable/linkedin_logo" />
+            android:src="@drawable/linkedin_logo"
+            app:layout_constraintStart_toEndOf="@id/profile_facebook_logo"
+            app:layout_constraintEnd_toStartOf="@id/profile_instagram_logo"
+            app:layout_constraintTop_toTopOf="@id/profile_facebook_logo"
+            app:layout_constraintBottom_toBottomOf="@id/profile_facebook_logo"/>
 
         <ImageView
             android:id="@+id/profile_instagram_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:src="@drawable/instagram_logo" />
+            android:src="@drawable/instagram_logo"
+            app:layout_constraintStart_toEndOf="@id/profile_linkedin_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_facebook_logo"
+            app:layout_constraintBottom_toBottomOf="@id/profile_facebook_logo"
+            />
 
-    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/profile_edit_profile_button"
@@ -155,7 +153,7 @@
         android:layout_marginTop="330dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/orange_button"
+        android:background="@drawable/button_view_my_contacts_selector"
         android:fontFamily="@font/open_sans"
         android:text="@string/Profile_view_my_contacts"
         android:textColor="@color/white"

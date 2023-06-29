@@ -3,6 +3,7 @@ package com.example.myproject
 import android.content.Context
 import android.content.SharedPreferences
 
+
 class MyPreferences(private val context: Context) {
 
     private val sharedPreferences: SharedPreferences by lazy {
@@ -18,14 +19,20 @@ class MyPreferences(private val context: Context) {
     }
 
     fun saveData(email: String, password: String) {
-        sharedPreferences.edit().apply {
+        sharedPreferences
+            .edit()
+            .apply {
             putString("email", email)
             putString("password", password)
             apply()
         }
     }
 
+    @Suppress("unused")
     fun clearData() {
-        sharedPreferences.edit().clear().apply()
+        sharedPreferences
+            .edit()
+            .clear()
+            .apply()
     }
 }

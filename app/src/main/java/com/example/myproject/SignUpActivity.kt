@@ -1,19 +1,15 @@
 package com.example.myproject
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.app.AppCompatActivity
+import com.example.myproject.common.Constants.EMAIL_INTENT_KEY
+import com.example.myproject.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
 
-    private val etEmail: EditText by lazy { findViewById(R.id.signUp_Email) }
-    private val etPassword: EditText by lazy { findViewById(R.id.signUp_Password) }
-    private val btnRegister: AppCompatButton by lazy { findViewById(R.id.signUp_register_button) }
+    private lateinit var binding: ActivitySignUpBinding
 
     private var email : String = ""
     private var password : String = ""
@@ -22,29 +18,41 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
 
-        // Получение экземпляра SharedPreferences
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+
         myPreferences = MyPreferences(this)
+        autologin()
 
-        btnRegister.setOnClickListener {
-            email = etEmail.text.toString().trim()
-            password = etPassword.text.toString().trim()
+        setContentView(binding.root)
+        setListeners()
+
+    }
+
+    private fun setListeners() {
+        binding.signUpRegisterButton.setOnClickListener { onRegisterButtonClick() }
+    }
+
+    private fun onRegisterButtonClick() {
+
+        with(binding) {
+            email =  signUpEmail.text.toString().trim()
+            password = signUpPassword.text.toString().trim()
 
             if (!isEmailValid(email)) {
-                etEmail.error = getString(R.string.SignUp_EmailError)
-                return@setOnClickListener
+                signUpEmail.error = getString(R.string.SignUp_EmailError)
             } else if (!isPasswordValid(password)) {
-                etPassword.error = getString(R.string.SignUp_PasswordError)
-                return@setOnClickListener
+                signUpPassword.error = getString(R.string.SignUp_PasswordError)
             } else {
-                Toast.makeText(this, getString(R.string.SignUp_ValidationCompleted), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SignUpActivity, getString(R.string.SignUp_ValidationCompleted), Toast.LENGTH_SHORT).show()      //todo extension method
+                // showToast(getString(R.string.SignUp_ValidationCompleted))
                 myPreferences.saveData(email, password)
                 startActivityMain()
             }
         }
 
-        autologin()
+
+
     }
 
     private fun autologin() {
@@ -58,7 +66,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
     private fun isEmailValid(email: String): Boolean {
-        val pattern = Regex("^[A-Za-z](.*)(@)(.+)(\\.)(.+)")
+        val pattern = Regex("^[A-Za-z](.*)(@)(.+)(\\.)(.+)")        //todo google Patterns.EMAIL_ADDRESS.matcher
         return pattern.matches(email)
     }
 
@@ -70,9 +78,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun startActivityMain() {
+        val email = myPreferences.getEmail() ?: binding.signUpEmail.text.toString().trim()      //todo send email here as argument of method
         val intent = Intent(this, MainActivity::class.java)
-        val email = myPreferences.getEmail() ?: etEmail.text.toString().trim()
-        intent.putExtra("email", email)
+        intent.putExtra(EMAIL_INTENT_KEY, email)
         startActivity(intent)
+        finish()
     }
 }
